@@ -259,6 +259,8 @@ new_exp = """<div class="border-left border-primary pt-2 pl-4 ml-2 timeline-box"
                                 </div>
                             </div>"""
 html = html.replace(old_exp, new_exp)
+
+
 # 7. Services
 old_services = """<div class="col-md-6 service-item text-center mb-3">
                             <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
