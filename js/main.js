@@ -71,3 +71,29 @@
     });
 })(jQuery);
 
+
+
+// Portfolio Video Hover Mechanics
+$(document).ready(function() {
+    $('.portfolio-card').each(function() {
+        var card = $(this);
+        var video = card.find('.portfolio-hover-video').get(0);
+        
+        if(video) {
+            card.on('mouseenter', function() {
+                var playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function(error) {
+                        // Auto-play prevented
+                        console.log("Video autoplay prevented:", error);
+                    });
+                }
+            });
+            
+            card.on('mouseleave', function() {
+                video.pause();
+                video.currentTime = 0; // Rewind the clip!
+            });
+        }
+    });
+});
