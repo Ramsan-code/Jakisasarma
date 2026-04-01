@@ -62,6 +62,40 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
+
+    // Contact Form Handling with EmailJS
+    $('#contact-form').on('submit', function(event) {
+        event.preventDefault();
+        
+        const $submitBtn = $('#submit-btn');
+        const $formStatus = $('#form-status');
+        
+        // Show loading state
+        $submitBtn.prop('disabled', true).text('Sending...');
+        $formStatus.html('<div class="alert alert-info">Sending your message...</div>');
+
+        // These IDs from your EmailJS account
+        const serviceID = 'service_l60r7at';
+        const templateID = 'template_7t19cdc';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                $submitBtn.prop('disabled', false).text('Send Message');
+                $formStatus.html('<div class="alert alert-success">Message sent successfully! I will get back to you soon.</div>');
+                $('#contact-form')[0].reset(); // Clear form
+                
+                // Clear success message after 5 seconds
+                setTimeout(() => {
+                    $formStatus.fadeOut('slow', function() {
+                        $(this).html('').show();
+                    });
+                }, 5000);
+            }, (err) => {
+                $submitBtn.prop('disabled', false).text('Send Message');
+                $formStatus.html('<div class="alert alert-danger">Oops! Something went wrong. Please try again.</div>');
+                console.error('EmailJS Error:', err);
+            });
+    });
 })(jQuery);
 
 
