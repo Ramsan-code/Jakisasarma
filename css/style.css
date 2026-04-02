@@ -9747,10 +9747,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #1dbf73 !important; /* Original Fiverr Green */
 }
 
-/* Sidebar updates */
+/* Sidebar updates - Glassy Depth */
 .sidebar {
-    background: linear-gradient(135deg, #1a1a1a, #000000);
-    box-shadow: inset -5px 0 15px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #121212, #000000);
+    box-shadow: inset -1px 0 0 rgba(255,255,255,0.1), 5px 0 15px rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(255,255,255,0.05);
 }
 .sidebar .btn-scroll, .sidebar .border-right {
     color: #fff;
@@ -9792,16 +9793,23 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-radius: 8px;
 }
 
-/* Containers */
+/* Containers - Glass Frame Enhancement */
 .container.bg-white {
-    background-color: #ffffff !important;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px -20px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    padding: 40px !important;
 }
 
 .content {
-    background-color: #e0e0e0;
+    background: #f8fafc;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0,0,0,0.03) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, rgba(0,0,0,0.01) 0, transparent 50%);
 }
 
 /* --- Video Hover Mechanics Portfolio --- */
