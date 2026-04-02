@@ -20,11 +20,14 @@ class ParticleBackground {
         this.canvas.style.left = '0';
         this.canvas.style.width = '100%';
         this.canvas.style.height = '100%';
-        this.canvas.style.zIndex = '-1';
+        this.canvas.style.zIndex = '0'; // Move up slightly but still below everything else
         this.canvas.style.pointerEvents = 'none';
-        this.canvas.style.opacity = '0.4';
+        this.canvas.style.opacity = '0.35';
         
-        document.body.appendChild(this.canvas);
+        // Append to wrapper for better layout integration
+        const wrapper = document.querySelector('.wrapper');
+        if (wrapper) wrapper.appendChild(this.canvas);
+        else document.body.appendChild(this.canvas);
         
         this.resize();
         window.addEventListener('resize', () => this.resize());
