@@ -6,27 +6,27 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
+  --blue: #656565;
+  --indigo: #434343;
+  --purple: #5e5e5e;
+  --pink: #7a7a7a;
+  --red: #696969;
+  --orange: #989898;
+  --yellow: #bfbfbf;
+  --green: #767676;
+  --teal: #919191;
+  --cyan: #797979;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #e5b161;
-  --secondary: #f4dbc2;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
-  --danger: #dc3545;
+  --primary: #333333;
+  --secondary: #f0f0f0;
+  --success: #767676;
+  --info: #797979;
+  --warning: #bfbfbf;
+  --danger: #696969;
   --light: #F2F2F2;
-  --dark: #141414;
+  --dark: #0a0a0a;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -194,6 +194,12 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+img:hover {
+  filter: grayscale(0%);
 }
 
 svg {
@@ -9584,7 +9590,7 @@ h4, h5, h6 {
 }
 
 .back-to-top i {
-  color: #e5b161;
+  color: #333333;
 }
 
 .back-to-top i:hover {
@@ -9611,7 +9617,7 @@ h4, h5, h6 {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: #e5b161;
+  background: #333333;
 }
 
 .progress {
@@ -9629,15 +9635,15 @@ h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #e5b161;
+  border: 2px solid #333333;
   border-radius: 75px;
   background: #FFFFFF;
-  color: #e5b161;
+  color: #333333;
   transition: .5s;
 }
 
 .service-item:hover i {
-  background: #e5b161;
+  background: #333333;
   color: #FFFFFF;
 }
 
@@ -9679,7 +9685,7 @@ h4, h5, h6 {
 
 /* --- Modern Custom Adjustments --- */
 body {
-    background-color: #f4dbc2;
+    background-color: #e0e0e0;
     color: #334155;
 }
 
@@ -9690,7 +9696,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .title.position-relative.pb-2.mb-4::after {
-    background: #e5b161; /* Ensure underline matches primary theme */
+    background: #333333; /* Ensure underline matches primary theme */
     border-radius: 4px;
 }
 
@@ -9712,7 +9718,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .service-item i {
     color: var(--primary);
-    background: rgba(229, 177, 97, 0.1);
+    background: rgba(51, 51, 51, 0.1);
     width: 80px;
     height: 80px;
     display: flex;
@@ -9729,9 +9735,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     transform: scale(1.1);
 }
 
+/* Brand Icon Specific Styles */
+.fiverr-icon {
+    display: inline-block;
+    min-width: 1.5rem;
+}
+.fiverr-icon i {
+    transition: color 0.3s ease;
+}
+.fiverr-icon:hover i {
+    color: #1dbf73 !important; /* Original Fiverr Green */
+}
+
 /* Sidebar updates */
 .sidebar {
-    background: linear-gradient(135deg, #2a221b, #17110c);
+    background: linear-gradient(135deg, #1a1a1a, #000000);
     box-shadow: inset -5px 0 15px rgba(0,0,0,0.1);
 }
 .sidebar .btn-scroll, .sidebar .border-right {
@@ -9783,7 +9801,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .content {
-    background-color: #f4dbc2;
+    background-color: #e0e0e0;
 }
 
 /* --- Video Hover Mechanics Portfolio --- */
