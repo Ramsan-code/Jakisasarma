@@ -9908,27 +9908,193 @@ body, html {
     }
 }
 
-/* 4. Sidebar Collision & Restacking Fixes @ Tablet/Mobile */
+/* 4. Mobile Off-Canvas Sidebar & Header */
+.mobile-header {
+    z-index: 1050;
+    display: none;
+    height: 70px;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1040;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block !important;
+    opacity: 1;
+}
+
 @media (max-width: 991px) {
+    .mobile-header {
+        display: block !important;
+    }
+    
     .wrapper .sidebar {
-        position: relative !important;
-        width: 100% !important;
-        float: none !important;
-        margin-left: 0 !important;
-        height: auto !important;
-        padding-bottom: 2rem !important;
+        position: fixed !important;
+        left: -350px !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 320px !important;
+        max-width: 85% !important;
+        z-index: 1060 !important;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        padding: 40px 10px !important;
+        height: 100vh !important;
+        overflow-y: auto !important;
+        display: flex !important;
     }
-    .wrapper .content {
-        width: 100% !important;
-        margin-left: 0 !important;
-        padding: 15px !important;
+    
+    .wrapper .sidebar.active {
+        left: 0 !important;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3) !important;
     }
-    .sidebar-icon {
+    
+    .wrapper .sidebar-icon {
         display: none !important;
     }
     
-    /* Reveal contact info statically on mobile */
-    .wrapper .sidebar-text {
-        display: flex !important;
+    .wrapper .content {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 70px !important;
+        padding: 15px !important;
+    }
+
+    .navbar-toggler {
+        border: none !important;
+        background: transparent !important;
+        color: #fff !important;
+        font-size: 1.5rem !important;
+        padding: 0 !important;
+        outline: none !important;
+    }
+}
+
+/* 5. Mobile Button Stacking & Touch Targets */
+@media (max-width: 576px) {
+    .sidebar-text .d-flex.align-items-end {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    .sidebar-text .btn {
+        margin-bottom: 10px;
+        border-right: none !important;
+        width: 100% !important;
+        padding: 14px 20px !important; /* Premium touch target height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* 6. Social Icon Touch Targets */
+.sidebar-text .d-flex.justify-content-center a {
+    padding: 12px !important; /* Ensures at least 44x44px area */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px !important;
+}
+
+/* 7. Profile Image Scaling for Mobile */
+@media (max-width: 991px) {
+    .sidebar-text img {
+        max-width: 120px !important;
+        border-radius: 50%; /* Modern look for mobile header */
+        margin: 10px auto !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .sidebar-text h1 {
+        font-size: 1.75rem !important;
+        margin-top: 10px !important;
+    }
+    .sidebar-text .typed-text-output {
+        font-size: 1rem !important;
+    }
+}
+
+/* 8. Education & Work Timeline Optimization */
+@media (max-width: 576px) {
+    .timeline-box h5 {
+        font-size: 1.1rem !important;
+    }
+    .timeline-box p.font-weight-bold {
+        font-size: 0.95rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .timeline-box p small {
+        display: block;
+        margin-top: 4px;
+        color: var(--primary);
+        font-weight: 600;
+    }
+    .container.bg-white {
+        padding: 30px 20px !important; /* More space on small screens */
+    }
+}
+
+/* 9. Form elements touch-friendly */
+.form-control {
+    min-height: 48px;
+}
+#submit-btn {
+    min-height: 48px;
+    width: 100%;
+}
+@media (min-width: 576px) {
+    #submit-btn {
+        width: auto;
+    }
+}
+
+/* 10. Sidebar Navigation Styling */
+.sidebar .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    position: relative;
+    padding: 12px 0;
+    color: #fff !important;
+}
+
+.sidebar .navbar-nav .nav-link:hover,
+.sidebar .navbar-nav .nav-link.active {
+    opacity: 1;
+}
+
+.sidebar .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 5px;
+    left: 50%;
+    background: #fff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.sidebar .navbar-nav .nav-link:hover::after {
+    width: 30px;
+}
+
+@media (max-width: 991px) {
+    .sidebar .navbar-nav .nav-link {
+        font-size: 1.1rem; /* Easier to tap on mobile */
+        padding: 15px 0;
     }
 }
