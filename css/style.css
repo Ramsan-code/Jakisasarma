@@ -9948,10 +9948,11 @@ body, html {
         max-width: 85% !important;
         z-index: 1060 !important;
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-        padding: 40px 10px !important;
+        padding: 85px 15px 40px 15px !important; /* Plenty of top room to avoid clipping */
         height: 100vh !important;
         overflow-y: auto !important;
-        display: flex !important;
+        display: block !important;
+        background: linear-gradient(180deg, #121212, #000000) !important;
     }
     
     .wrapper .sidebar.active {
@@ -10008,11 +10009,17 @@ body, html {
 
 /* 7. Profile Image Scaling for Mobile */
 @media (max-width: 991px) {
+    .sidebar-text {
+        display: block !important;
+        height: auto !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
     .sidebar-text img {
-        max-width: 120px !important;
+        max-width: 140px !important;
         border-radius: 50%; /* Modern look for mobile header */
-        margin: 10px auto !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        margin: 0 auto 20px auto !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
     }
     .sidebar-text h1 {
         font-size: 1.75rem !important;
